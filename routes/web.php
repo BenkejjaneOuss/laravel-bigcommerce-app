@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BigcommerceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('auth/install', [BigcommerceController::class, 'install'])->name('bigcommerce.install');
+Route::get('auth/load', [BigCommerceController::class, 'callback'])->name('bigcommerce.callback');
+Route::get('/dashboard', [BigCommerceController::class, 'dashboard'])->name('bigcommerce.dashboard');
